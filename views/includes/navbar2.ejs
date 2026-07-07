@@ -1,0 +1,72 @@
+<style>
+  .btn-search {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem;
+  }
+  .btn-search:hover {
+    background-color: #fe424d;
+    color: #fff;
+  }
+  .btn-search i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 56px; /* height of navbar */
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: #fff;
+    padding: 1rem;
+  }
+}
+
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand ms-2" href="/listings">
+      <i class="fa-solid fa-cart-shopping fa-lg" style="color: #6351ce;"></i>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/listings">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/listings/new">Sell your Product</a>
+        </li>
+        <% if (!currUser) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/signup"><b>SignUp</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login"><b>Login</b></a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/cart">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout"><b>Logout</b></a>
+        </li>
+        <% } %>
+      </ul>
+
+      <form class="d-flex mt-2 mt-md-0" role="search" action="/listings/search" method="GET">
+        <input name="search" class="form-control me-2" type="search" placeholder="Search an item" aria-label="Search">
+        <button class="btn btn-search" type="submit" style="background-color: #6351ce;"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
