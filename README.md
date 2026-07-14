@@ -67,7 +67,4 @@ CampusCart
 └── README.md
 ```
 
----
-
-## ⚙ Installation
 
